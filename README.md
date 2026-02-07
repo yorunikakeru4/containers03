@@ -78,6 +78,7 @@ root@9e5a980b3049:/var/www/html# ls -l
 total 4
 -rw-r--r-- 1 root root 2292 Feb  7 03:38 index.html
 root@9e5a980b3049:/var/www/html# cat index.html
+```
 ```html
 <!doctype html>
 <html lang="ru">
@@ -168,6 +169,8 @@ root@9e5a980b3049:/var/www/html# cat index.html
     </table>
   </body>
 </html>
+
 ```
+```bash
 root@9e5a980b3049:/var/www/html#
 ```
