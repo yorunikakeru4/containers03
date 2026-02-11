@@ -1,10 +1,15 @@
 # Лабораторная работа номер 3
+
 ## Студент: Кроитор Александр
+
 ## Группа: IA2403
+
 ## Преподователь: M. Croitor
+
 ## Дата: 02-07-2026
 
 ### Предисловие:
+
     Я не могу использовать Docker Desktop, так как я на Linux (nixos, поэтому я буду использовать docker/podman (podman - not daemon docker containers https://podman.io/))
 Чтобы сделать тестовый Dockerfile рабочим с podman, я явно укажу источник image
 
@@ -13,11 +18,13 @@ FROM docker.io/library/debian:latest
 ```
 
 Запуск:
+
 ```bash
 docker build -t containers02 .
 ```
 
 С помощью комманды time вычисляем время запуска контейнера
+
 ```bash
 time podman build -t containers03 .
 STEP 1/3: FROM docker.io/library/debian:latest
@@ -41,22 +48,27 @@ Executed in    2.55 secs      fish           external
 ```
 
 далее
+
 ```bash
  podman run --name containers03 containers03
 hello from 2bcb3dced3db
 ```
+
 при запуске контейнера выскакивает вывод CMD 
 
 удаляем контейнер
+
 ```bash
 podman rm containers03
 containers03
 ```
 А после заходим в него через bash
+
 ```bash
 podman run -ti --name containers03 containers03 bash
 ```
 При запуске видно, что нам доступны базовые комманды из sh без дистрибутивных комманд
+
 ```bash
 root@6ac45fc801ba:/# ls
 bash: /usr/bin/ls: No such file or directory
@@ -66,19 +78,28 @@ root@6ac45fc801ba:/# apt install
 bash: apt: command not found
 root@6ac45fc801ba:/#
 ```
+
 Я удалил все файлы внутри контейнера, никак не повредив файлы вне - сила контейнеризации
+
 ```bash
 root@6ac45fc801ba:/# ls
 bash: /usr/bin/ls: No such file or directory
 root@6ac45fc801ba:/#
 ```
-В /var/www/html автоматически загрузился наш index.html
+
+В /var/www/html загрузился наш index.html, так как мы скопировали его в эту папку через:
+
+```dockefile
+COPY ./site/ /var/www/html/
+```
+
 ```bash
 root@9e5a980b3049:/var/www/html# ls -l
 total 4
 -rw-r--r-- 1 root root 2292 Feb  7 03:38 index.html
 root@9e5a980b3049:/var/www/html# cat index.html
 ```
+
 ```html
 <!doctype html>
 <html lang="ru">
@@ -171,6 +192,7 @@ root@9e5a980b3049:/var/www/html# cat index.html
 </html>
 
 ```
+
 ```bash
 root@9e5a980b3049:/var/www/html#
 ```
