@@ -4,7 +4,7 @@
 
 ## Группа: IA2403
 
-## Преподователь: M. Croitor
+## Преподaватель: M. Croitor
 
 ## Дата: 02-07-2026
 
@@ -24,7 +24,7 @@ FROM docker.io/library/debian:latest
 docker build -t containers02 .
 ```
 
-С помощью комманды time вычисляем время запуска контейнера
+С помощью команды time вычисляем время запуска контейнера
 
 ```bash
 time podman build -t containers03 .
@@ -72,7 +72,7 @@ podman run -ti --name containers03 containers03 bash
 
 -ti в данном случае означает tty (псевдотерминал) + i (interactive), сохраняя cmd открытым
 
-При запуске видно, что нам доступны базовые комманды из sh без дистрибутивных комманд
+При запуске видно, что нам доступны базовые команды из sh без дистрибутивных команд
 
 ```bash
 root@6ac45fc801ba:/# ls
