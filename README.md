@@ -67,6 +67,8 @@ containers03
 ```bash
 podman run -ti --name containers03 containers03 bash
 ```
+-ti в данном случае означает tty (псевдотерминал) + i (interactive), сохраняя cmd открытым
+
 При запуске видно, что нам доступны базовые комманды из sh без дистрибутивных комманд
 
 ```bash
