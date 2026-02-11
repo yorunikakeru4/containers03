@@ -11,6 +11,7 @@
 ### Предисловие:
 
     Я не могу использовать Docker Desktop, так как я на Linux (nixos, поэтому я буду использовать docker/podman (podman - not daemon docker containers https://podman.io/))
+
 Чтобы сделать тестовый Dockerfile рабочим с podman, я явно укажу источник image
 
 ```dockerfile
@@ -54,7 +55,7 @@ Executed in    2.55 secs      fish           external
 hello from 2bcb3dced3db
 ```
 
-при запуске контейнера выскакивает вывод CMD 
+при запуске контейнера выскакивает вывод CMD
 
 удаляем контейнер
 
@@ -62,11 +63,13 @@ hello from 2bcb3dced3db
 podman rm containers03
 containers03
 ```
+
 А после заходим в него через bash
 
 ```bash
 podman run -ti --name containers03 containers03 bash
 ```
+
 -ti в данном случае означает tty (псевдотерминал) + i (interactive), сохраняя cmd открытым
 
 При запуске видно, что нам доступны базовые комманды из sh без дистрибутивных комманд
@@ -192,7 +195,6 @@ root@9e5a980b3049:/var/www/html# cat index.html
     </table>
   </body>
 </html>
-
 ```
 
 ```bash
