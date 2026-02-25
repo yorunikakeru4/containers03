@@ -21,7 +21,7 @@ FROM docker.io/library/debian:latest
 Запуск:
 
 ```bash
-docker build -t containers02 .
+podman build -t containers02 .
 ```
 
 С помощью команды time вычисляем время запуска контейнера
@@ -94,7 +94,7 @@ root@6ac45fc801ba:/#
 
 В /var/www/html загрузился наш index.html, так как мы скопировали его в эту папку через:
 
-```dockefile
+```dockerfile
 COPY ./site/ /var/www/html/
 ```
 
@@ -197,6 +197,10 @@ root@9e5a980b3049:/var/www/html# cat index.html
 </html>
 ```
 
-```bash
-root@9e5a980b3049:/var/www/html#
-```
+Выводы:
+
+- Контейнеры являются изолированным процессом, где каждому дочернему процессу присуждается свой pid
+- Контейнеры позволяют достаточно просто создавать репродуктивное пространство в декларативном синтаксисе
+
+Используемая библиография:
+Я использовал nixos.org для скачивания podman полгода назад, и podman --help чтобы почитать как он работает
